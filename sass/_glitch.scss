@@ -1,0 +1,63 @@
+// Glitch animation
+
+@mixin glitchCopy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+}
+
+.glitch {
+    position: relative;
+    color: white;
+    animation: glitch-skew 1s infinite linear alternate-reverse;
+
+    &::before {
+        @include glitchCopy;
+        left: 1px;
+        text-shadow: -1px 0 #ff00c1;
+        clip: rect(2.4rem, 25rem, 3.12rem, 0);
+        animation: glitch-anim 5s infinite linear alternate-reverse;
+    }
+
+    &::after {
+        @include glitchCopy;
+        left: -1px;
+        text-shadow: -1px 0 #00fff9, 1px 1px #ff00c1;
+        animation: glitch-anim2 2s infinite linear alternate-reverse;
+    }
+}
+
+@keyframes glitch-anim {
+    $steps: 20;
+
+    @for $i from 0 through $steps {
+        #{percentage($i*(1/$steps))} {
+            clip: rect(random(100)+px, 9999px, random(100)+px, 0);
+            transform: skew((random(100) / 100) + deg);
+        }
+    }
+}
+
+@keyframes glitch-anim2 {
+    $steps: 20;
+
+    @for $i from 0 through $steps {
+        #{percentage($i*(1/$steps))} {
+            clip: rect(random(100)+px, 9999px, random(100)+px, 0);
+            transform: skew((random(100) / 100) + deg);
+        }
+    }
+}
+
+@keyframes glitch-skew {
+    $steps: 10;
+
+    @for $i from 0 through $steps {
+        #{percentage($i*(1/$steps))} {
+            transform: skew((random(10) - 5) + deg);
+        }
+    }
+}

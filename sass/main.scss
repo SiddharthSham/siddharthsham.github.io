@@ -1,0 +1,217 @@
+@import 'variables.scss';
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+::selection {
+  color: $primary-color;
+  background-color: $background-color;
+}
+
+* {
+  :focus {
+    outline: none;
+  }
+}
+
+:root {
+  background-color: $background-color;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 18px;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  overflow-x: hidden;
+}
+
+.fluid {
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 50vw 50vw;
+  grid-template-rows: 10vh 90vh auto 20vh;
+
+  .header {
+    padding: 0.5rem;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    display: flex;
+    justify-content: center;
+    scroll-snap-align: start;
+
+    img {
+      filter: invert(1);
+      height: 100%;
+      width: auto;
+
+      :hover {
+        animation: skew 2s;
+      }
+    }
+  }
+
+  .hero-container {
+    display: flex;
+    flex-direction: row;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+
+  .image_container {
+    max-width: 50vw;
+    display: flex;
+    justify-content: center;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    .image {
+      cursor: none;
+      display: flex;
+      width: auto;
+      height: 100%;
+      max-height: 95%;
+    }
+  }
+
+  .hero {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    padding-left: 0.75rem;
+    color: $primary-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+  }
+
+  .section {
+    padding-top: 5rem;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    font-family: $serif-font;
+    font-size: $small;
+    color: $primary-color;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    min-height: 70vh;
+    scroll-snap-align: start;
+
+    p {
+      max-width: 95%;
+      text-align: justify;
+      font-family: $sans-serif-font;
+    }
+  }
+
+  footer {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    color: $primary-color;
+
+    .icon {
+      margin-left: 2rem;
+      margin-right: 2rem;
+      font-size: $small;
+    }
+  }
+}
+
+.lead {
+  font-family: $serif-font !important;
+  font-size: $medium;
+}
+
+.name {
+  font-family: $serif-font;
+  font-size: $large;
+}
+
+.subtext {
+  color: $secondary-color;
+  font-family: $mono-font;
+  font-size: $very-small;
+  letter-spacing: 0.125rem;
+  line-height: 1.5rem;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+
+.sub {
+  color: $secondary-color;
+  font-family: $mono-font;
+  font-size: $very-small;
+  letter-spacing: 0.125rem;
+  line-height: 1.5rem;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+
+  :hover {
+    color: $green;
+    animation: grow 0.8s ease-in-out infinite;
+  }
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(1.2, 1.2);
+  }
+
+  100% {
+    transform: scale(1.2, 1.2);
+  }
+}
+
+.contact {
+  z-index: 1;
+  background-color: $primary-color;
+  color: $background-color;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed !important;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: $small;
+  bottom: 3vh;
+  right: 2vw;
+
+  :hover {
+    color: $background-color;
+    background-color: $primary-color;
+    cursor: pointer;
+  }
+}
+
+@import 'query';
+@import 'cursor';
+@import 'glitch';
+@import 'modal';
+@import 'helpers';
+@import '../node_modules/microtip/microtip.min.css';
+@import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css';

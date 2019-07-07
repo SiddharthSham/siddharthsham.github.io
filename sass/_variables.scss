@@ -1,0 +1,18 @@
+//variables
+
+$primary-color: #fafafa; 
+$secondary-color: #9e9e9e;
+$background-color: #000;
+$contrast-color: red;
+$pink: #ff00c1;
+$green: #00fff9;
+
+
+$sans-serif-font: 'Roboto', sans-serif;
+$serif-font: 'Playfair Display', serif;
+$mono-font: 'Roboto Mono', monospace;
+
+$large: calc(4rem + (48 - 3) * ((100vw - 300px) / (1920 - 300)));
+$medium: calc(2.75rem + (24 - 1.75) * ((100vw - 300px) / (1920 - 300)));
+$small: calc(1.25rem + (12 - 1) * ((100vw - 300px) / (1920 - 300)));
+$very-small: calc(1rem + (3 - 1) * ((100vw - 300px) / (1920 - 300)));

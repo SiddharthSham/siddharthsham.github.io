@@ -1,0 +1,59 @@
+//cursor styles
+
+.custom-cursor {
+    position: fixed;
+    top: -18px;
+    left: -18px;
+    display: block;
+    width: 120px;
+    height: 120px;
+    pointer-events: none;
+    will-change: transform;
+    z-index: 998;
+    -webkit-transform: matrix(1, 0, 0, 1, -100, -100);
+    transform: matrix(1, 0, 0, 1, -100, -100);
+    opacity: 0;
+    mix-blend-mode: exclusion;
+    transition: opacity 0.4s ease, transform 0.15s cubic-bezier(0, 0.89, 0.49, 0.92),
+      opacity 0.4s ease;
+  }
+
+  .custom-cursor .cursor {
+    transform: scale(0.45);
+    transition: transform 0.5s ease;
+    will-change: transform;
+    width: 120px;
+    height: 120px;
+    float: left;
+    border-radius: 100%;
+    margin-top: -40px;
+    margin-left: -40px;
+    background: transparent;
+    border:3px solid $primary-color;
+    
+  }
+  
+  .custom-cursor.custom-cursor-active .cursor {
+    transform: scale(1.5);
+    opacity: 1;
+     background: $primary-color;
+  }
+  
+  .custom-cursor--y{
+    mix-blend-mode: difference;
+  }
+  
+  .custom-cursor.custom-cursor-active.custom-cursor--y .cursor{
+    background: $primary-color; 
+  }
+  
+  body:hover .custom-cursor {
+    opacity: 1;
+  }
+  
+  @media screen and (max-width: 1200px) {
+    .custom-cursor {
+      display: none !important;
+    }
+  }
+//end cursor  
